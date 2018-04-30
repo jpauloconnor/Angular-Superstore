@@ -1,0 +1,35 @@
+  <div>
+      <table class='table'>
+          <thead>
+              <tr>
+                  <th>Product Id</th>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Quantity on hand</th>
+                  <th>Is in stock</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor='let product of products'
+                    (click)="onSelect(product)">
+                  <td>{{ product.id}}</td>
+                  <td>{{ product.name }}</td>
+                  <td>{{ product.description }}</td>
+                  <td>{{ product.quantityOnHand }}</td>
+                  <td>{{ product.isInStock }}</td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+
+  <app-product-detail [product]="selectedProduct"></app-product-detail>
+<!-- 
+  <div *ngIf="selectedProduct">
+ 
+    <h2>{{ selectedProduct.name | uppercase }} Details</h2>
+    <div><span>id: </span>{{selectedProduct.id}}</div>
+    <div>
+      <label>name:
+        <input [(ngModel)]="selectedProduct.name" placeholder="name">
+      </label>
+    </div> -->
